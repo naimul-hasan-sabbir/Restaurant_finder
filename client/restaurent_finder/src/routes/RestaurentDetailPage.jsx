@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import RestaurentFinder from '../apis/RestaurentFinder';
+import Reviews from '../components/Reviews';
 import StarRating from '../components/StarRating';
 import { RestaurentsContext } from '../context/RestaurentContext';
 
@@ -23,7 +24,17 @@ const RestaurentDetailPage = () => {
 		fetchData();
 	}, []);
 
-	return <div>{selectedRestaurent && <StarRating rating={3} />}</div>;
+	return (
+		<div>
+			{selectedRestaurent && (
+				<>
+					<div className="mt-3">
+						<Reviews />
+					</div>
+				</>
+			)}
+		</div>
+	);
 };
 
 export default RestaurentDetailPage;
